@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('       {{ url_for('static',filename='img/hack.jpg') }}          ')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1 style="color:lightblue;"><i>Welcome to my DashBoard</i></h1>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <h1>Upload a file</h1>
+<form action="/uploader" method="post" enctype="multipart/form-data">
+  <input type="file" name="file1">
+  <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+</form>
+
+          <div class="form-group">
+            <a href="/logout"><button type="submit" class="btn btn-primary" id="sendMessageButton">LOGOUT</button></a>
+          </div>
+
+
+
+          <div class="form-group">
+            <a href="/edit/0"><button type="submit" class="btn btn-primary" id="sendMessageButton">ADD POST</button></a>
+          </div>
+          
+
+    <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Serial_No</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+       {% for post in posts %}
+      <tr>
+        <td>{{post.sno}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.date}}</td>
+        <td><a href="/edit/{{post.sno}}"><button type="submit" class="btn btn-primary" id="sendMessageButton">Edit</button></a></td>
+        <td><a href="/delete/{{post.sno}}"><button type="submit" class="btn btn-primary" id="sendMessageButton">Delete</button></a></td>
+      </tr>
+      {%  endfor %}
+    </tbody>
+  </table>
+
+<div class="clearfix">
+<a class="btn btn-primary float right" href="">PREVIOUS</a>
+
+<a class="btn btn-primary float right" href="">NEXT </a>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+ {% endblock %}
