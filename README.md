@@ -11,4 +11,5 @@ In the template folder , all the html and json files are stored
 In the static folder , all the images and css files are stored
 
 First Part- https://youtu.be/3-uj4NnxggE
+
 Second Part- https://youtu.be/6VBOcIKw1RI
